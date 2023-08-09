@@ -1,34 +1,49 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import Map, { Marker, Popup } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import "./styles/styles.scss";
+import Card from "./components/Card";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [viewport, setViewport] = useState({
+    latitude: 47.040182,
+    longitude: 17.071727,
+    zoom: 4,
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <Navbar />
+      <Map
+        mapboxAccessToken={import.meta.env.VITE_MAPBOX_TOKEN}
+        initialViewState={{
+          ...viewport,
+        }}
+        style={{ width: "100vw", height: "100vh" }}
+        mapStyle="mapbox://styles/mapbox/streets-v9"
+      >
+        <Marker latitude={48.858093} longitude={2.294694}>
+          <i
+            className="fa-solid fa-location-dot"
+            style={{
+              fontSize: 7 * viewport.zoom,
+              cursor: "pointer",
+              color: "slateblue",
+            }}
+          />
+        </Marker>
+        <Popup
+          latitude={48.858093}
+          longitude={2.294694}
+          closeButton={true}
+          closeOnClick={false}
+          anchor="left"
+        >
+          <Card />
+        </Popup>
+      </Map>
+    </div>
   );
 }
 
