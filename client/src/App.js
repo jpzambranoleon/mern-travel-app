@@ -86,7 +86,7 @@ function App() {
       <ReactMapGL
         {...viewState}
         mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        mapStyle="mapbox://styles/mapbox/streets-v9"
+        mapStyle="mapbox://styles/safak/cknndpyfq268f17p53nmpwira"
         onMove={(e) => setViewState(e.viewState)}
         onDblClick={currentUser && handleAddClick}
       >
