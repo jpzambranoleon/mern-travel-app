@@ -11,6 +11,7 @@ import { Rating } from "@mui/material";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { logout } from "./redux/userSlice";
 import Card from "./components/Card";
+import mapboxgl from "!mapbox-gl";
 
 function App() {
   const dispatch = useDispatch();
