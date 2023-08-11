@@ -8,15 +8,7 @@
   ],
   "routes": [
     {
-      "src": "/routes/auth.routes.js",
-      "dest": "index.js"
-    },
-    {
-      "src": "/routes/pin.routes.js",
-      "dest": "index.js"
-    },
-    {
-      "src": "/routes/user.routes.js",
+      "src": "/routes",
       "dest": "index.js"
     }
   ]
