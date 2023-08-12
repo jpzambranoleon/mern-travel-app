@@ -6,7 +6,7 @@ import { Room } from "@mui/icons-material";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import { publicRequest, userRequest } from "./requestMethods";
-import { Rating } from "@mui/material";
+import { Avatar, Rating } from "@mui/material";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { logout } from "./redux/userSlice";
 import Card from "./components/Card";
@@ -177,9 +177,12 @@ function App() {
         </>
       )}
       {currentUser ? (
-        <button className="button logout" onClick={handleLogout}>
-          Log out
-        </button>
+        <>
+          <button className="button logout" onClick={handleLogout}>
+            Log out
+          </button>
+          <Avatar src={currentUser.profilePic} />
+        </>
       ) : (
         <div className="buttons">
           <button className="button login" onClick={() => setShowLogin(true)}>
