@@ -181,7 +181,7 @@ function App() {
           <button className="button logout" onClick={handleLogout}>
             Log out
           </button>
-          <Avatar src={currentUser.profilePic} />
+          <Avatar src={currentUser.profilePic} sx={{}} />
         </>
       ) : (
         <div className="buttons">
