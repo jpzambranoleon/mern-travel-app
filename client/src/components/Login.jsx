@@ -40,7 +40,7 @@ export default function Login({ setShowLogin }) {
     <div className="loginContainer">
       <div className="logo">
         <Room className="logoIcon" />
-        <span>LamaPin</span>
+        <span>LeonPin</span>
       </div>
       <form onSubmit={handleSubmit}>
         <input
