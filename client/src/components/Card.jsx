@@ -3,9 +3,11 @@ import { format } from "timeago.js";
 import { publicRequest, userRequest } from "../requestMethods";
 import { InfoContext } from "../utils/InfoProvider";
 import { useContext } from "react";
+import { useSelector } from "react-redux";
 
 export default function Card({ pin, setPins }) {
   const { setStatus } = useContext(InfoContext);
+  const { currentUser } = useSelector((state) => state.user);
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -46,9 +48,11 @@ export default function Card({ pin, setPins }) {
         Created by <b>{pin.username}</b>
       </span>
       <span className="date">{format(pin.createdAt)}</span>
-      <button className="submitButton" onClick={handleDelete}>
-        Delete
-      </button>
+      {p.username === currentUser.username && (
+        <button className="submitButton" onClick={handleDelete}>
+          Delete
+        </button>
+      )}
     </div>
   );
 }
