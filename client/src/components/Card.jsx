@@ -48,7 +48,7 @@ export default function Card({ pin, setPins }) {
         Created by <b>{pin.username}</b>
       </span>
       <span className="date">{format(pin.createdAt)}</span>
-      {p.username === currentUser.username && (
+      {pin.username === currentUser.username && (
         <button className="submitButton" onClick={handleDelete}>
           Delete
         </button>
